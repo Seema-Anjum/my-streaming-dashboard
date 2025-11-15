@@ -1,0 +1,98 @@
+.movie-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* spacing between title and row */
+}
+
+.movie-row h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.movie-row-cards {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+/* Hide default scrollbar */
+.movie-row-cards::-webkit-scrollbar {
+  display: none;
+}
+.movie-row-cards {
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.movie-card {
+  min-width: 150px;
+  position: relative;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.2s ease;
+}
+
+.movie-card img {
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Hover overlay */
+.movie-card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-card-overlay {
+  opacity: 1;
+}
+
+/* Skeleton loader */
+.movie-card-skeleton {
+  min-width: 150px;
+  height: 225px;
+  background-color: #27272a;
+  border-radius: 12px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .movie-row h2 {
+    font-size: 20px;
+  }
+  .movie-card {
+    min-width: 120px;
+  }
+  .movie-card img {
+    height: auto;
+  }
+}

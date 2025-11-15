@@ -1,0 +1,87 @@
+/* Container for all movie cards */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual movie card */
+.movie-card {
+  background-color: #18181b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-card .no-image {
+  height: 270px;
+  background-color: #27272a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  font-size: 16px;
+}
+
+.movie-card .info {
+  padding: 12px;
+}
+
+.movie-card .title {
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.movie-card .rating {
+  font-size: 14px;
+  color: #a1a1aa;
+}
+
+/* Responsive tweaks for small devices */
+@media (max-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .movie-card .title {
+    font-size: 16px;
+  }
+
+  .movie-card .rating {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .movie-card .title {
+    font-size: 14px;
+  }
+
+  .movie-card .rating {
+    font-size: 12px;
+  }
+}
